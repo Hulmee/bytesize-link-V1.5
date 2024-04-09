@@ -27,13 +27,17 @@
   </div>
   <main class="w-screen ">
     <Hero />
-    <Card />
+    <!-- <Card /> -->
+    <RouterView />
   </main>
 </template>
 
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 import Hero from './components/Hero.vue';
-import Card from './components/Card.vue';
+// import Card from './components/Card.vue';
+
+
 </script>
 
 
