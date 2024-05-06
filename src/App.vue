@@ -1,4 +1,4 @@
-<template>
+npm<template>
 
   <div class="navbar bg-primary text-primary-content">
     <div class="flex-1">
@@ -8,7 +8,7 @@
       <label class="swap swap-rotate">
 
         <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" class="theme-controller" value="coffee" />
+        <input type="checkbox" class="theme-controller" value="retro" />
 
         <!-- sun icon -->
         <svg class="swap-off fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -33,23 +33,24 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Hero from './components/Hero.vue';
-// import Card from './components/Card.vue';
+  import { RouterLink, RouterView } from 'vue-router'
+  import Hero from './components/Hero.vue';
+  // import Card from './components/Card.vue';
 
 
 </script>
 
 
 <style scoped>
-/* flex flex-col justify-center items-center */
-main {
-  height: 90%;
-  /* width: 100%; */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
 
-}
+  /* flex flex-col justify-center items-center */
+  main {
+    height: 90%;
+    /* width: 100%; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+  }
 </style>
