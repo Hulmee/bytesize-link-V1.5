@@ -6,7 +6,9 @@
             <div class="stat-value">Redirect Page</div>
             <div class="stat-title">{{ msg }}</div>
             <!-- <div class="stat-value">{{ msg }}</div> -->
-            <div class="stat-desc">{{ shortLink }}</div>
+            <!-- <div class="stat-desc">{{ shortLink }}</div> -->
+            <span class="loading loading-dots loading-lg text-primary mt-2"></span>
+            <!-- <span class="loading loading-dots loading-lg text-neutral"></span> -->
         </div>
     </div>
 </template>
@@ -40,8 +42,7 @@
             if (expiresAt > new Date()) {
                 link.value = data[0].long_link;
             } else {
-                msg.value = `Link has expired`
-                shortLink.value = window.location
+                msg.value = `${window.location} has expired`
             }
         } else {
             msg.value = `Link not found for ${window.location}`;
