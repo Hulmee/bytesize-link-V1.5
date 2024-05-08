@@ -1,14 +1,11 @@
 <template>
-    <!-- <h1>Redirect Page</h1> -->
-    <div class="stats bg-accent  shadow">
-
+    <Hero>Redirect Page</Hero>
+    <span v-if="!msg" class="loading loading-dots loading-lg text-primary mt-2"></span>
+    <div v-else class="stats bg-accent  shadow">
         <div class="stat place-items-center">
-            <div class="stat-value">Redirect Page</div>
-            <div class="stat-title">{{ msg }}</div>
-            <!-- <div class="stat-value">{{ msg }}</div> -->
-            <!-- <div class="stat-desc">{{ shortLink }}</div> -->
-            <span class="loading loading-dots loading-lg text-primary mt-2"></span>
-            <!-- <span class="loading loading-dots loading-lg text-neutral"></span> -->
+            <!-- <div class="stat-value">Redirect Page</div> -->
+            <div class="stat-value">{{ msg }}</div>
+            <!-- <div class="stat-title">{{ msg }}</div> -->
         </div>
     </div>
 </template>
@@ -17,6 +14,7 @@
     import { onMounted, ref, watchEffect } from 'vue'
     import { useRouter, useRoute } from 'vue-router'
     import { supabase } from '@/lib/supabaseClient'
+    import Hero from '../components/Hero.vue';
 
     const router = useRouter(),
         route = useRoute(),

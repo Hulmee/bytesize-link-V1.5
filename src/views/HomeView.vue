@@ -1,6 +1,8 @@
 <template>
     <section class="w-screen pt-3">
-
+        <Hero>
+            Byte Size Link
+        </Hero>
         <Shorten @change="e => { handleChange(e) }" />
         <div v-if="link.id" class="w-96 mt-10">
             <div class="mockup-browser border bg-base-300">
@@ -12,7 +14,7 @@
                     <div class="flex  m-1">
 
                         <p class="mx-1"> <span>{{ baseURL }}</span><span>{{ link.id }}</span></p>
-                        <kbd class="kbd kbd-sm mx-1">Copy</kbd>
+                        <kbd @click="handleCopy" class="kbd kbd-sm mx-1">Copy</kbd>
                     </div>
                     <small>created: <span>{{ link.created_at }}</span></small>
                 </div>
@@ -27,6 +29,7 @@
     import { supabase } from '@/lib/supabaseClient'
 
     import Shorten from "../components/Shorten.vue"
+    import Hero from '../components/Hero.vue';
 
     const link = ref([]),
         msg = ref(''),
@@ -63,14 +66,14 @@
         handleChange = (lLink) => {
             getLinks(lLink)
             // alert('short clicked ' + lLink)
-        }
-    // handleCopy = () => {
-    //     if (shortURL.value) {
+        },
+    handleCopy = () => {
+        if (shortURL.value) {
 
-    //         alert(`url ${shortURL.value} has been coppied`)
-    //         navigator.clipboard.writeText(shortURL.value);
-    //     }
-    // }
+            alert(`url ${shortURL.value} has been coppied`)
+            navigator.clipboard.writeText(shortURL.value);
+        }
+    }
 </script>
 
 <style scoped>
