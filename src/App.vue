@@ -1,30 +1,45 @@
 <template>
-<Nav/>
+  <Nav />
   <main class="w-screen ">
     <RouterView />
   </main>
- <Footer/>
+  <Footer />
 </template>
 
 <script setup>
-  import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+// import { useHead, useRuntimeConfig } from '@unhead/vue';
+import { useHead } from '@unhead/vue';
+// import(useRun)
+
 import Nav from './components/Nav.vue'
 import Footer from './components/Footer.vue';
 
+
+const router = useRouter()
+const route = useRoute()
+const runtimeConfig = window.location.host
+const canonical = `${runtimeConfig}${router.resolve(route.name ? { name: route.name } : route).path}`
+// const canonical = `${router.resolve(route.name ? { name: route.name } : route).path}`
+console.log(canonical);
+useHead({
+  link: [
+    { rel: 'canonical', href: canonical },
+  ],
+})
 
 </script>
 
 
 <style scoped>
+/* flex flex-col justify-center items-center */
+main {
+  height: 80%;
+  /* width: 100%; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 
-  /* flex flex-col justify-center items-center */
-  main {
-    height: 80%;
-    /* width: 100%; */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-
-  }
+}
 </style>

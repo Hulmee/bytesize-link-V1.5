@@ -9,19 +9,18 @@ const router = createRouter({
     {
       path: "/",
       name: "Home",
-      component: HomeView,
+      component: HomeView
     },
     {
       path: "/about",
       name: "About",
-      component: About,
-      // props: true
+      component: About
+
     },
     {
       path: "/:slug",
       name: "Redirect",
-      component: Redirect,
-      // props: true
+      component: Redirect
     },
   ],
 });

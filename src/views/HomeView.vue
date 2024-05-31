@@ -24,49 +24,65 @@
 </template>
 
 <script setup>
-    import { ref, computed } from 'vue';
+import { ref, computed } from 'vue';
+import { useSeoMeta } from '@unhead/vue';
 
-    import { supabase } from '@/lib/supabaseClient'
 
-    import Shorten from "../components/Shorten.vue"
-    import Hero from '../components/Hero.vue';
+import { supabase } from '@/lib/supabaseClient'
 
-    const link = ref([]),
-        msg = ref(''),
-        host = window.location.host,
-        baseURL = window.location.href,
-        shortURL = ref(''),
-        getLinks = async (id) => {
-            const { data, error } = await supabase
-                .from('links')
-                .select('*')
-                // .eq('id', id)
-                .eq('long_link', id)
+import Shorten from "../components/Shorten.vue"
+import Hero from '../components/Hero.vue';
 
-            if (error) {
-                msg.value = `Error fetching link: ${error}`
-                return;
-            }
-            if (data && data.length > 0) {
-                link.value = data[0];
-                shortURL.value = `${host}/${link.value.id}`
 
-            } else {
-                msg.value = `Link not found for ${window.location}${id}`
-            }
-        },
-        formattedLink = computed(() => {
-            // Check if link starts with "https://"
-            if (link.value && !link.value.long_link.startsWith("https://")) {
-                return "https://" + link.value.long_link;
-            } else {
-                return link.value.long_link;
-            }
-        }),
-        handleChange = (lLink) => {
-            getLinks(lLink)
-            // alert('short clicked ' + lLink)
-        },
+useSeoMeta({
+    title: 'Byte Size Link',
+    description: 'Shorten long URLs instantly & manage them easily! Ellery Hulme\'s link shortener, built with Vue.js & Supabase, offers a simple & lightweight solution.',
+    ogTitle: 'Efficient Link Shortening with Ellery Hulme',
+    ogDescription: 'Discover our lightweight link shortener, created by Ellery Hulme, leveraging Vue.js and Supabase for a seamless experience.',
+    ogUrl: 'https://yourwebsite.com',
+    twitterCard: 'summary',
+    keywords: 'link shortener, Vue.js, Supabase, DaisyUI, Tailwind CSS, efficient link shortening, custom CSS, SCSS, Ellery Hulme',
+    author: 'Ellery Hulme',
+    robots: 'index, follow',
+})
+
+
+const link = ref([]),
+    msg = ref(''),
+    host = window.location.host,
+    baseURL = window.location.href,
+    shortURL = ref(''),
+    getLinks = async (id) => {
+        const { data, error } = await supabase
+            .from('links')
+            .select('*')
+            // .eq('id', id)
+            .eq('long_link', id)
+
+        if (error) {
+            msg.value = `Error fetching link: ${error}`
+            return;
+        }
+        if (data && data.length > 0) {
+            link.value = data[0];
+            shortURL.value = `${host}/${link.value.id}`
+
+        } else {
+            msg.value = `Link not found for ${window.location}${id}`
+        }
+    },
+    formattedLink = computed(() => {
+        // Check if link starts with "https://"
+        if (link.value && !link.value.long_link.startsWith("https://")) {
+            return "https://" + link.value.long_link;
+        } else {
+            return link.value.long_link;
+        }
+    }),
+    handleChange = (lLink) => {
+        getLinks(lLink)
+        // alert('short clicked ' + lLink)
+    },
     handleCopy = () => {
         if (shortURL.value) {
 
@@ -77,12 +93,12 @@
 </script>
 
 <style scoped>
-    section {
-        height: 100%;
+section {
+    height: 100%;
 
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
-    }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
 </style>
