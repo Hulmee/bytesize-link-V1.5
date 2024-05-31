@@ -18,7 +18,7 @@ import Footer from './components/Footer.vue';
 
 const router = useRouter()
 const route = useRoute()
-const runtimeConfig = window.location.host
+const runtimeConfig = `https://${window.location.host}`
 const canonical = `${runtimeConfig}${router.resolve(route.name ? { name: route.name } : route).path}`
 // const canonical = `${router.resolve(route.name ? { name: route.name } : route).path}`
 console.log(canonical);
