@@ -49,12 +49,12 @@ useSeoMeta({
     description: 'Learn about Ellery Hulme\'s journey from custom CSS/SCSS to using DaisyUI with Tailwind CSS for efficient link shortening.',
     ogTitle: 'About Ellery Hulme\'s Link Shortening Project',
     ogDescription: 'Discover the evolution of our link shortener from custom CSS/SCSS to using DaisyUI with Tailwind CSS. Meet Ellery Hulme, the developer committed to clean code and user-friendly design.',
-    // ogUrl: 'https://yourwebsite.com/about',
+    ogUrl: 'https://bytesz.link//about',
     twitterCard: 'summary',
     keywords: 'about link shortener, Vue.js, Supabase, DaisyUI, Tailwind CSS, developer story, custom CSS, SCSS, Ellery Hulme',
     author: 'Ellery Hulme',
     robots: 'index, follow',
-    // url: 'https://yourwebsite.com/about'
+
 })
 </script>
 
