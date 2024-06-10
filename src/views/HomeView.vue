@@ -25,7 +25,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-// import { useSeoMeta } from '@unhead/vue';
+import { useSeoMeta } from '@unhead/vue';
 
 
 import { supabase } from '@/lib/supabaseClient'
@@ -34,8 +34,8 @@ import Shorten from "../components/Shorten.vue"
 import Hero from '../components/Hero.vue';
 
 
-/*
- useSeoMeta({
+
+useSeoMeta({
     title: 'Byte Size Link',
     description: 'Shorten long URLs instantly & manage them easily! Ellery Hulme\'s link shortener, built with Vue.js & Supabase, offers a simple & lightweight solution.',
     ogTitle: 'Efficient Link Shortening with Ellery Hulme',
@@ -46,7 +46,7 @@ import Hero from '../components/Hero.vue';
     author: 'Ellery Hulme',
     robots: 'index, follow',
 })
-*/
+
 
 const link = ref([]),
     msg = ref(''),

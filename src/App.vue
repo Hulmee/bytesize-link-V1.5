@@ -20,12 +20,14 @@ const router = useRouter(),
   route = useRoute(),
   runtimeConfig = `https://${window.location.host}`,
   canonical = `${runtimeConfig}${router.resolve(route.name ? { name: route.name } : route).path}`
+  */
 useHead({
   link: [
-    { rel: 'canonical', href: canonical },
+    // { rel: 'canonical', href: canonical },
+    { rel: 'canonical', href: 'https://bytesz.link/' },
   ],
 })
-*/
+
 </script>
 
 
