@@ -45,7 +45,6 @@ useSeoMeta({
     description: 'Shorten long URLs instantly & manage them easily! Ellery Hulme\'s link shortener, built with Vue.js & Supabase, offers a simple & lightweight solution.',
     ogTitle: 'Efficient Link Shortening with Ellery Hulme',
     ogDescription: 'Discover our lightweight link shortener, created by Ellery Hulme, leveraging Vue.js and Supabase for a seamless experience.',
-    // ogUrl: 'https://bytesz.link/',
     ogUrl: canonical,
     twitterCard: 'summary',
     keywords: 'link shortener, Vue.js, Supabase, DaisyUI, Tailwind CSS, efficient link shortening, custom CSS, SCSS, Ellery Hulme',

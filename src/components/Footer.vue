@@ -2,8 +2,6 @@
     <footer class="footer items-center p-4 bg-neutral text-neutral-content">
         <aside class="items-center grid-flow-col">
             <RouterLink to="/about" class="btn btn-ghost text-xl">About Project</RouterLink>
-
-            <!-- <router-link>Copyright © 2024 - All right reserved</router-link> -->
         </aside>
         <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             <a href="https://github.com/Hulmee/bytesize-link-V1.5" target="_blank">
@@ -25,9 +23,9 @@
 </template>
 
 <script setup>
-    // 
+// 
 </script>
 
 <style scoped>
-    /*  */
+/*  */
 </style>
