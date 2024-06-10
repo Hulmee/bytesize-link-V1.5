@@ -15,7 +15,7 @@ import { useHead } from '@unhead/vue';
 import Nav from './components/Nav.vue'
 import Footer from './components/Footer.vue';
 
-
+/*
 const router = useRouter(),
   route = useRoute(),
   runtimeConfig = `https://${window.location.host}`,
@@ -25,7 +25,7 @@ useHead({
     { rel: 'canonical', href: canonical },
   ],
 })
-
+*/
 </script>
 
 
