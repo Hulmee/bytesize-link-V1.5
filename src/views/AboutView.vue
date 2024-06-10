@@ -41,15 +41,24 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router'
+
 import Hero from '../components/Hero.vue';
 import { useSeoMeta } from '@unhead/vue';
+
+const route = useRoute(),
+    runtimeConfig = `https://${window.location.host}`,
+    ogURLref = new URL(route.fullPath, runtimeConfig).href
+console.log(ogURLref);
 
 useSeoMeta({
     title: 'About - Byte Size Link - By Ellery Hulme\'s',
     description: 'Learn about Ellery Hulme\'s journey from custom CSS/SCSS to using DaisyUI with Tailwind CSS for efficient link shortening.',
     ogTitle: 'About Ellery Hulme\'s Link Shortening Project',
     ogDescription: 'Discover the evolution of our link shortener from custom CSS/SCSS to using DaisyUI with Tailwind CSS. Meet Ellery Hulme, the developer committed to clean code and user-friendly design.',
-    ogUrl: 'https://bytesz.link/about',
+    // ogUrl: 'https://bytesz.link/about',
+    ogUrl: ogURLref,
+
     twitterCard: 'summary',
     keywords: 'about link shortener, Vue.js, Supabase, DaisyUI, Tailwind CSS, developer story, custom CSS, SCSS, Ellery Hulme',
     author: 'Ellery Hulme',

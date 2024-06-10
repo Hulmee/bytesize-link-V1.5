@@ -7,24 +7,19 @@
 </template>
 
 <script setup>
-import { RouterLink, useRoute, useRouter } from 'vue-router'
-// import { useHead, useRuntimeConfig } from '@unhead/vue';
+import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue';
-// import(useRun)
 
 import Nav from './components/Nav.vue'
 import Footer from './components/Footer.vue';
 
-/*
-const router = useRouter(),
-  route = useRoute(),
+const route = useRoute(),
   runtimeConfig = `https://${window.location.host}`,
-  canonical = `${runtimeConfig}${router.resolve(route.name ? { name: route.name } : route).path}`
-  */
+  canonical = new URL(route.fullPath, runtimeConfig).href
+
 useHead({
   link: [
-    // { rel: 'canonical', href: canonical },
-    { rel: 'canonical', href: 'https://bytesz.link/' },
+    { rel: 'canonical', href: canonical },
   ],
 })
 
