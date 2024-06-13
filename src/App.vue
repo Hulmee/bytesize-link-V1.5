@@ -30,6 +30,7 @@ useHead({
 /* flex flex-col justify-center items-center */
 main {
   height: 80%;
+  /* height: 100dvh; */
   /* width: 100%; */
   display: flex;
   justify-content: flex-start;
