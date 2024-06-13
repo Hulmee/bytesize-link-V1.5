@@ -16,7 +16,16 @@
                         <p class="mx-1"> <span>{{ baseURL }}</span><span>{{ link.id }}</span></p>
                         <kbd @click="handleCopy" class="kbd kbd-sm mx-1">Copy</kbd>
                     </div>
-                    <small>created: <span>{{ link.created_at }}</span></small>
+                    <!--                     
+                    <small>created: <span>{{ new Date(link.created_at).toLocaleString('en-AU', {
+                        day: 'numeric', weekday: 'short', month: 'short',
+                        year: 'numeric', hour: 'numeric', minute: 'numeric'
+                            }) }}</span></small>
+                     -->
+                    <small>Expires: <span>{{ new Date(link.expires_at).toLocaleString('en-AU', {
+                        day: 'numeric', weekday: 'short', month: 'short',
+                        year: 'numeric', hour: 'numeric', minute: 'numeric'
+                    }) }}</span></small>
                 </div>
             </div>
         </div>
@@ -38,8 +47,6 @@ import Hero from '../components/Hero.vue';
 const route = useRoute(),
     runtimeConfig = `https://${window.location.host}`,
     canonical = new URL(route.fullPath, runtimeConfig).href
-
-
 useSeoMeta({
     title: 'Byte Size Link',
     description: 'Shorten long URLs instantly & manage them easily! Ellery Hulme\'s link shortener, built with Vue.js & Supabase, offers a simple & lightweight solution.',
@@ -58,12 +65,12 @@ const link = ref([]),
     host = window.location.host,
     baseURL = window.location.href,
     shortURL = ref(''),
-    getLinks = async (id) => {
+    getLink = async (id) => {
         const { data, error } = await supabase
             .from('links')
             .select('*')
-            .eq('long_link', id)
-
+            .eq('id', id)
+        console.log(data);
         if (error) {
             msg.value = `Error fetching link: ${error}`
             return;
@@ -85,7 +92,7 @@ const link = ref([]),
         }
     }),
     handleChange = (lLink) => {
-        getLinks(lLink)
+        getLink(lLink)
         // alert('short clicked ' + lLink)
     },
     handleCopy = () => {

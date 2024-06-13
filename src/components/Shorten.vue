@@ -16,27 +16,28 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
-    import { supabase } from '@/lib/supabaseClient'
+import { ref } from 'vue';
+import { supabase } from '@/lib/supabaseClient'
 
 
-    const emit = defineEmits(['change']),
-        longLink = ref(''),
-        linkError = ref(false),
-        newLink = ref(''),
-        handleClick = async () => {
-            if (longLink.value.length <= 0) { return linkError.value = true }
-            linkError.value = false
-            const { data, error } = await supabase
-                .from('links')
-                .insert([
-                    { 'long_link': longLink.value },
-                ])
-                .select()
-            emit('change', longLink.value)
-        }
+const emit = defineEmits(['change']),
+    longLink = ref(''),
+    linkError = ref(false),
+    newLink = ref(''),
+    handleClick = async () => {
+        if (longLink.value.length <= 0) { return linkError.value = true }
+        linkError.value = false
+        const { data, error } = await supabase
+            .from('links')
+            .insert([
+                { 'long_link': longLink.value },
+            ])
+            .select()
+        console.log(data[0].id)
+        emit('change', data[0].id)
+    }
 </script>
 
 <style scoped>
-    /*  */
+/*  */
 </style>
